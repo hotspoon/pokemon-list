@@ -1,11 +1,13 @@
 import React from "react"
+import InfiniteScrollExample1 from "../_components/InfiniteScroll1"
+import PokemonList from "../_components/PokemonList"
 
 function Page() {
   return (
-    <div className="h-screen flex flex-col">
-      <div className="bg-green-600 flex-1">1</div>
-      <div className="bg-gray-600 flex-1">2</div>
-    </div>
+    <>
+      <PokemonList />
+      {/* <InfiniteScrollExample1 /> */}
+    </>
   )
 }
 

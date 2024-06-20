@@ -28,15 +28,18 @@ type PokemonType = {
 
 async function Page({ params }: { params: { id: string } }) {
   const { name, types, weight, height, abilities } = await fetchPokemon(Number(params.id))
-  // const species = await fetchSpecies(Number(params.id))
+  const species = await fetchSpecies(Number(params.id))
+  console.log(species.egg_groups)
   // Correctly typed version of the map function
-  const typeNames = types.map((item: PokemonType) => item.type.name)
+  // const typeNames = types.map((item: PokemonType) => item.type.name)
   const abilityNames = (abilities as any[]).map((ability: any) => ability.ability.name)
 
   let aboutData = {
     weight: weight,
     height: height,
-    abilities: abilityNames
+    abilities: abilityNames,
+    eggGroups: species.egg_groups.map((item: any) => item.name),
+    genderRate: species.gender_rate
   }
   return (
     <>
